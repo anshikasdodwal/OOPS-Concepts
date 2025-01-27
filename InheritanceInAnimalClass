@@ -1,0 +1,58 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class Animal{
+    protected:
+    string name;
+    int age;
+    public:
+    Animal(string name,int age){
+        this->name=name;
+        this->age=age;
+    }
+    virtual void sound()=0;
+    void getName(){
+        cout<<"Name of the animal is "<<name<<endl;
+    }
+    void getAge(){
+        cout<<name<<" is "<<age<<" years old"<<endl;
+    }
+};
+class Cat:public Animal{
+    string color;
+    public:
+    Cat(string name,int age,string color):Animal(name,age){
+        this->color=color;
+    }
+    void sound() override{
+        cout<<name<<" is meowing"<<endl;
+    }
+    void getColor(){
+        cout<<name<<" is "<<color<<" coloured"<<endl;
+    }
+};
+class Dog:public Animal{
+    string breed;
+    public:
+    Dog(string name,int age,string breed):Animal(name,age){
+        this->breed=breed;
+    }
+    void sound() override{
+        cout<<name<<" is barking"<<endl;
+    }
+    void getBreed(){
+        cout<<name<<" is a "<<breed<<endl;
+    }
+};
+int main(){
+    Cat cat1("Toast",2,"Orange");
+    cat1.getName();
+    cat1.getAge();
+    cat1.getColor();
+    Dog dog1("Happy",4,"Golden Retriever");
+    dog1.getName();
+    dog1.sound();
+    dog1.getAge();
+    dog1.getBreed();
+    return 0;
+}
